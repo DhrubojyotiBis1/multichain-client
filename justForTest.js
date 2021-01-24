@@ -5,7 +5,14 @@ let multichain = require("multichain-node")({
     pass: "test"
 });
 
-let listenForConfirmations = (txid) => {
+multichain.getInfo((err, info) => {
+    if(err){
+        throw err;
+    }
+    console.log(info);
+})
+
+/*let listenForConfirmations = (txid) => {
     console.log("WAITING FOR CONFIRMATIONS")
 
     return new Promise((resolve, reject) => {
@@ -38,7 +45,10 @@ let getConfirmations = (txid) => {
 function getInfo() {
     console.log("TEST: GET INFO")
     multichain.getInfo((err, res) => {
-        assert(res, "Could not get info");
+        if(err){
+            throw err;
+        }
+        console.log(info);
     })
 }
 
@@ -49,4 +59,4 @@ let startTests = () => {
     console.log(" ")
 }
 
-startTests()
+startTests()*/
